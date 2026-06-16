@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "ai-property": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with", "mcp",
+        "--with", "httpx",
+        "--with", "python-dotenv",
+        "${CLAUDE_PROJECT_DIR}/mcp/server.py"
+      ],
+      "env": {
+        "AI_PROPERTY_DATA": "${CLAUDE_PROJECT_DIR}/data",
+        "GOOGLE_MAPS_API_KEY": "${GOOGLE_MAPS_API_KEY}"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    }
+  }
+}

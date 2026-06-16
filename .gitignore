@@ -1,0 +1,14 @@
+# Secrets — never commit real keys
+.env
+.env.local
+
+# Python / uv caches
+__pycache__/
+*.pyc
+.venv/
+
+# Research output written at runtime
+research/
+
+# OS junk
+.DS_Store
