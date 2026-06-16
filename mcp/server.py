@@ -29,7 +29,7 @@ SOURCE_DOCS = {
     "buying-strategy": SOURCE / "How to Buy and Invest in Property in Malaysia_ A Comprehensive Strategic Guide.md",
     "pre-purchase-checklist": SOURCE / "Strategic Pre-Purchase Checklist for Malaysian Real Estate.md",
     "evaluation-criteria": SOURCE / "How to Evaluate a Property_ Criteria for Investment vs Own Stay in Malaysia.md",
-    "investment-vs-ownstay": SOURCE / "Buying for Investment vs. Buying for Own Stay in Malaysia_ The Strategist’s Blueprint.md",
+    "investment-vs-ownstay": SOURCE / "Buying for Investment vs. Buying for Own Stay in Malaysia_ The Strategist's Blueprint.md",
     "location-analysis": SOURCE / "How to Analyse a Property Location in Malaysia Like an Expert.md",
     "research-tools": SOURCE / "How to Research Property Data in Malaysia_ Tools, Sources, and Methods.md",
     "master-scoring-framework": SOURCE / "Property Analysis Master Scoring Framework for Malaysia (2025-2026 Edition).md",
