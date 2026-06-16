@@ -19,11 +19,13 @@ It works with **no API keys** for the first two skills. Maps and scraping need f
 
 ### A) Claude Desktop (Cowork) — easiest
 
-1. **One-time tools** (open Terminal):
+1. **One-time tools** (open Terminal). On macOS the simplest, warning-free way is Homebrew:
    ```bash
-   curl -LsSf https://astral.sh/uv/install.sh | sh   # macOS/Linux  (Windows: see note below)
-   brew install node                                  # or nodejs.org
+   brew install uv node
    ```
+   No Homebrew? Get it at [brew.sh](https://brew.sh) first. (Advanced / Linux alternative:
+   `curl -LsSf https://astral.sh/uv/install.sh | sh` for uv — but this may trigger a macOS
+   "Apple cannot verify" warning, which Homebrew avoids.)
 2. Download **`ai-property.plugin`** from this repo (click the file above → Download).
 3. In Claude Desktop: **Cowork → Plugins → Add Plugin** → select `ai-property.plugin`.
 4. Enter your own Google Maps / Firecrawl keys when asked (or leave blank to skip).
@@ -47,8 +49,9 @@ That's it — the plugin is self-contained.
    export FIRECRAWL_API_KEY="your-key"
    ```
 
-> **Windows:** install uv with `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
-> and Node from nodejs.org. Set keys via System Environment Variables.
+> **Windows:** install uv with `winget install astral-sh.uv` (or
+> `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`) and Node from nodejs.org.
+> Set keys via System Environment Variables.
 
 ---
 
@@ -78,5 +81,6 @@ Your keys stay on your own machine. They are **not** included in this repo or th
 
 ## Requirements
 
-- **uv** — runs the Python server (auto-installs its deps): https://astral.sh/uv
+- **uv** — runs the Python server (auto-installs its deps). Best installed via `brew install uv`
+  (macOS) or `winget install astral-sh.uv` (Windows). More: https://astral.sh/uv
 - **Node.js 18+** — runs the Firecrawl scraper (only needed for `property-research`)

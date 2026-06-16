@@ -17,11 +17,14 @@ Run these and report what's missing:
 uv --version || echo "MISSING: uv"
 node --version || echo "MISSING: node"
 ```
-- If **uv** is missing: install with `curl -LsSf https://astral.sh/uv/install.sh | sh`
-  (macOS/Linux) or `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"` (Windows),
-  then tell the user to restart their terminal / Claude Code so it's on PATH.
-- If **node** is missing: install Node 18+ from https://nodejs.org (or `brew install node`
-  on macOS). Only the `property-research` (Firecrawl) feature needs it.
+- If **uv** is missing: prefer Homebrew on macOS — `brew install uv` — because it avoids the
+  "Apple cannot verify" Gatekeeper warning that the raw install script can trigger. On Windows
+  use `winget install astral-sh.uv`. Only fall back to `curl -LsSf https://astral.sh/uv/install.sh | sh`
+  if Homebrew/winget isn't available, and warn the user they may see a Gatekeeper prompt they can
+  approve under System Settings → Privacy & Security. After installing, tell the user to restart
+  their terminal / Claude Code so uv is on PATH.
+- If **node** is missing: `brew install node` (macOS) or Node 18+ from https://nodejs.org.
+  Only the `property-research` (Firecrawl) feature needs it.
 
 ### 2. The MCP servers auto-register
 This repo ships a project-level `.mcp.json` that Claude Code loads automatically when the
