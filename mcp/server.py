@@ -25,15 +25,22 @@ KB_SUMMARY = AGENTS / "KV2025_data" / "kb" / "kv_buyer_knowledge_base_summary.md
 KV2025_MD = AGENTS / "KV2025.md"
 PROPERTYAI_MD = SKILLS / "PropertyAI" / "SKILL.md"
 
-SOURCE_DOCS = {
-    "buying-strategy": SOURCE / "How to Buy and Invest in Property in Malaysia_ A Comprehensive Strategic Guide.md",
-    "pre-purchase-checklist": SOURCE / "Strategic Pre-Purchase Checklist for Malaysian Real Estate.md",
-    "evaluation-criteria": SOURCE / "How to Evaluate a Property_ Criteria for Investment vs Own Stay in Malaysia.md",
-    "investment-vs-ownstay": SOURCE / "Buying for Investment vs. Buying for Own Stay in Malaysia_ The Strategist's Blueprint.md",
-    "location-analysis": SOURCE / "How to Analyse a Property Location in Malaysia Like an Expert.md",
-    "research-tools": SOURCE / "How to Research Property Data in Malaysia_ Tools, Sources, and Methods.md",
-    "master-scoring-framework": SOURCE / "Property Analysis Master Scoring Framework for Malaysia (2025-2026 Edition).md",
+# slug → original repo filename. In the packaged plugin the guides are bundled under
+# safe slug filenames (Cowork rejects zip paths with spaces/punctuation); in repo dev
+# mode the original filenames are used.
+SOURCE_FILES = {
+    "buying-strategy": "How to Buy and Invest in Property in Malaysia_ A Comprehensive Strategic Guide.md",
+    "pre-purchase-checklist": "Strategic Pre-Purchase Checklist for Malaysian Real Estate.md",
+    "evaluation-criteria": "How to Evaluate a Property_ Criteria for Investment vs Own Stay in Malaysia.md",
+    "investment-vs-ownstay": "Buying for Investment vs. Buying for Own Stay in Malaysia_ The Strategist's Blueprint.md",
+    "location-analysis": "How to Analyse a Property Location in Malaysia Like an Expert.md",
+    "research-tools": "How to Research Property Data in Malaysia_ Tools, Sources, and Methods.md",
+    "master-scoring-framework": "Property Analysis Master Scoring Framework for Malaysia (2025-2026 Edition).md",
 }
+if os.environ.get("AI_PROPERTY_DATA"):
+    SOURCE_DOCS = {slug: SOURCE / f"{slug}.md" for slug in SOURCE_FILES}
+else:
+    SOURCE_DOCS = {slug: SOURCE / fname for slug, fname in SOURCE_FILES.items()}
 
 # Load API key — project .env first, then env block from Claude Desktop config
 load_dotenv(ROOT / ".env")
